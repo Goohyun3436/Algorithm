@@ -15,13 +15,12 @@ const toScore = {
 let hours = 0;
 let scores = 0;
 
-for (let i = 0; i < input.length; i++) {
-  const [subject, hour, grade] = input[i].split(' ');
+for (let record of input) {
+  const [subject, hour, grade] = record.split(' ');
 
-  if (grade !== 'P') {
-    hours += Number(hour);
-    scores += Number(hour) * toScore[grade];
-  }
+  if (grade === 'P') continue;
+  hours += Number(hour);
+  scores += Number(hour) * toScore[grade];
 }
 
 console.log((scores / hours).toFixed(6));
