@@ -1,9 +1,11 @@
-let input = require('fs').readFileSync(0, 'utf-8').trim().split('\n').map(el => el.split(''));
+let rowLengthList = [];
+let input = require('fs').readFileSync(0, 'utf-8').trim().split('\n')
+  .map(el => {
+    rowLengthList.push(el.length);
+    return el.split('');
+  });
 let res = '';
-
-let nList = [];
-input.map(el => nList.push(el.length));
-const N = Math.max(...nList);
+const N = Math.max(...rowLengthList);
 
 for (let i = 0; i < N; i++) {
   for (let row of input) {
