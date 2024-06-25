@@ -9,11 +9,6 @@ for (let n of input) {
   }
   let set = [...new Set(factors)];
   const sum = set.reduce((a, b) => a + b);
-
-  if (sum === n) {
-    set.sort((a, b) => a - b);
-    console.log(`${n} = ${set.join(' + ')}`);
-  } else {
-    console.log(`${n} is NOT perfect.`);
-  }
+  
+  sum === n ? console.log(`${n} = ${set.sort((a, b) => a - b).join(' + ')}`) : console.log(`${n} is NOT perfect.`);
 }
