@@ -1,12 +1,12 @@
 let score = Int(readLine()!)!
 
-if (90...100).contains(score) {
+if (score >= 90) {
   print("A")
-} else if (80...89).contains(score) {
+} else if (score >= 80) {
   print("B")
-} else if (70...79).contains(score) {
+} else if (score >= 70) {
   print("C")
-} else if (60...69).contains(score) {
+} else if (score >= 60) {
   print("D")
 }  else {
   print("F")
