@@ -1,4 +1,4 @@
-let N: Int = .init(readLine()!)!
+let N: Int = Int(readLine()!)!
 
 for i in 1 ... 9 {
     print("\(N) * \(i) = \(N * i)")
