@@ -1,7 +1,9 @@
 var submitIds: [String] = []
 while let i = readLine() { submitIds.append(i) }
 
-let ids: [String] = [Int](1 ... 30).map{ String($0) }
-let targetIds: Set<String> = Set(ids).subtracting(Set(submitIds))
+var targetIds: [String] = []
+for sId in 1 ... 30 where !submitIds.contains(String(sId)) {
+  targetIds.append(String(sId))
+}
 
 print(targetIds.joined(separator: "\n"))
