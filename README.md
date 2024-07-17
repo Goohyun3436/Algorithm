@@ -1,2 +1,2 @@
-# BOJAutoPush
+# Algorithm
 BaekjoonHub
