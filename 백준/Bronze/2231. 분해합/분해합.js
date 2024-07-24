@@ -11,7 +11,8 @@ while (N !== 1) {
   }
 
   if (sum === N) break;
-  if (M > 1000000) {
+  
+  if (N <= M) {
     M = 0;
     break;
   }
