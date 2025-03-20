@@ -1,5 +1,4 @@
 import Foundation
-import Foundation
 
 var input = readLine()!
 let croatiaAlphabet = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
