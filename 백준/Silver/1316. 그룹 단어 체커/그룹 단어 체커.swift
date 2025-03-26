@@ -8,22 +8,19 @@ for _ in 0..<Int(readLine()!)! {
 print(count)
 
 func check(_ word: String) -> Bool {
-    var alphabetSet = Set<String>()
-    var alphabetCount = 0
-    var before = ""
+    var alphabet = [Character: Bool]()
+    var before: Character? = nil
     
-    for character in word {
-        let str = String(character)
-        
-        if before != str {
-            before = str
-            alphabetSet.insert(str)
-            alphabetCount += 1
-            
-            if alphabetSet.count != alphabetCount {
+    for char in word {
+        if before != char {
+            guard !alphabet[char, default: false] else {
                 return false
             }
+            
+            alphabet[char] = true
+            before = char
         }
     }
+    
     return true
 }
