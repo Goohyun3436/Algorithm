@@ -1,16 +1,11 @@
 let input = readLine()!
-let alphabets = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-                "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var alphabetCount = [String: Int]()
 
-for alphabet in alphabets {
-    alphabetCount[alphabet] = 0
+var alphabets = Array(repeating: 0, count: 26)
+
+for unit16 in input.utf16 {
+    alphabets[Int(unit16) - 97] += 1
 }
 
-for alphabet in input {
-    alphabetCount[String(alphabet)]! += 1
-}
-
-for alphabet in alphabets {
-    print(alphabetCount[alphabet]!, terminator: " ")
+for count in alphabets {
+    print(count, terminator: " ")
 }
