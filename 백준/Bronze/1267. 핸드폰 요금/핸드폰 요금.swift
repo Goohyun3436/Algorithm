@@ -18,18 +18,5 @@ if y > m {
 }
 
 func getCharge(used: Int, for sec: Int, price: Int) -> Int {
-    let share = used / sec
-    let remainder = used % sec
-    
-    var charge = share * price
-    
-    if share > 0 && remainder >= 0 {
-        charge += price
-    }
-    
-    if share == 0 && remainder > 0 {
-        charge += price
-    }
-    
-    return charge
+    return (used / sec + 1) * price
 }
