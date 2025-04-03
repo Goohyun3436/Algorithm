@@ -1,17 +1,28 @@
-let nums: [Int] = readLine()!.split(separator:" ").map{ Int($0)! }
+var dices = Array(repeating: 0, count: 6)
+let input = readLine()!.split(separator: " ")
 
-var counter = [Int: Int]()
-for num in nums {
-    counter[num, default: 0] += 1
+for result in input {
+    dices[Int(result)! - 1] += 1
 }
 
-let count: Int = counter.values.max()!
-let num: Int = counter.first{ $0.value == count }!.key
+print(getPrice())
 
-if (count == 3) {
-    print(10000 + num * 1000)
-} else if (count == 2) {
-    print(1000 + num * 100)
-} else {
-    print(nums.max()! * 100)
+func getPrice() -> Int {
+    var maxInDiff = 0
+    
+    for (dice, count) in dices.enumerated() {
+        if count == 3 {
+            return 10000 + (dice + 1) * 1000
+        }
+        
+        if count == 2 {
+            return 1000 + (dice + 1) * 100
+        }
+        
+        if count == 1 {
+            maxInDiff = dice + 1
+        }
+    }
+    
+    return maxInDiff * 100
 }
