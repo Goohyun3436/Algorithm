@@ -4,7 +4,6 @@ var k = input[1]
 var coins = Array(repeating: 0, count: n)
 var count = 0
 
-
 for i in 0..<n {
     let coin = Int(readLine()!)!
     coins[i] = coin
@@ -13,12 +12,8 @@ for i in 0..<n {
 for coin in coins.reversed() {
     guard k != 0 else { break }
     
-    let a = k / coin
-    
-    guard a != 0 else { continue }
-    
-    count += a
-    k -= a * coin
+    count += k / coin
+    k %= coin
 }
 
 print(count)
