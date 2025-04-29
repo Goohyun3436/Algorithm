@@ -1,21 +1,21 @@
-let remains = readLine()!.map { String($0) }
+let remains = readLine()!.map { $0 }
 var num = 1
 var index = 0
 
 while true {
-    let numbers = String(num).map { String($0) }
+    let numStr = String(num)
     
-    for num in numbers {
-        if remains[index] == num {
+    for ch in numStr {
+        guard index < remains.count else {
+            break
+        }
+        
+        if remains[index] == ch {
             index += 1
-            
-            guard index != remains.count else {
-                break
-            }
         }
     }
     
-    guard index != remains.count else {
+    guard index < remains.count else {
         break
     }
     
