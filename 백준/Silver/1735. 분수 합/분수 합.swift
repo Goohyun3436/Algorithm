@@ -1,11 +1,9 @@
-var nums: [[Int]] = Array(repeating: [], count: 2)
+var fractions: [[Int]] = Array(repeating: [], count: 2)
 
-for i in 0..<2 {
-    let input = readLine()!.split(separator: " ").map { Int($0)! }
-    nums[i] = [input[0], input[1]]
-}
+fractions[0] = readLine()!.split(separator: " ").map { Int($0)! }
+fractions[1] = readLine()!.split(separator: " ").map { Int($0)! }
 
-let sum = sumOfFraction(nums[0], nums[1])
+let sum = sumOfFraction(fractions[0], fractions[1])
 let reduction = reductionOfFraction(sum)
 print(reduction[0], reduction[1])
 
@@ -14,19 +12,10 @@ print(reduction[0], reduction[1])
 func sumOfFraction(_ a: [Int], _ b: [Int]) -> [Int] {
     guard a.count == 2 && b.count == 2 else { return [] }
     
-    var a = a
-    var b = b
+    let c = a[0] * b[1] + b[0] * a[1]
+    let d = a[1] * b[1]
     
-    let denominator1 = a[1]
-    let denominator2 = b[1]
-    
-    a[0] *= denominator2
-    a[1] *= denominator2
-    
-    b[0] *= denominator1
-    b[1] *= denominator1
-    
-    return [a[0] + b[0], a[1]]
+    return [c, d]
 }
 
 func gcd(_ a: Int, _ b: Int) -> Int {
@@ -43,9 +32,9 @@ func gcd(_ a: Int, _ b: Int) -> Int {
     return b
 }
 
-func reductionOfFraction(_ fraction: [Int]) -> [Int] {
-    guard fraction.count == 2 else { return fraction }
-    let gcd = gcd(fraction[0], fraction[1])
+func reductionOfFraction(_ f: [Int]) -> [Int] {
+    guard f.count == 2 else { return f }
+    let gcd = gcd(f[0], f[1])
     
-    return [fraction[0] / gcd, fraction[1] / gcd]
+    return [f[0] / gcd, f[1] / gcd]
 }
