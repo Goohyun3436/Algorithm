@@ -17,9 +17,13 @@ for _ in 0..<t {
 
 //MARK: - Helper
 func isPrime(_ n: Int) -> Bool {
-    guard n >= 2 else { return false }
+    guard n > 1 else { return false }
+    if n == 2 { return true }
+    guard n % 2 != 0 else { return false }
     
-    for i in 2..<Int(sqrt(Double(n)) + 1) {
+    let sqrt_ = Int(sqrt(Double(n)) + 1)
+    
+    for i in stride(from: 3, through: sqrt_, by: 2) {
         if n % i == 0 { return false }
     }
     
